@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -46,7 +46,7 @@ class UserFactory extends Factory
     }
 
     private function generateCin(){
-        $prefix = 'HA';
+        $prefix = 'GA';
         $randomNumber = mt_rand(1000000, 9999999);
          // Implement check digit calculation
 

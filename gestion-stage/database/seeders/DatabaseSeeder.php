@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $role = Role::create(['name' => 'admin']);
-        $permission = Permission::create(['name' => 'delete articles']);
+        $role = Role::findByName('stagiaire');
+        $permission = Permission::create(['name' => 'show articles']);
         $role->givePermissionTo($permission);
 
         $users = User::factory(50)->create();
