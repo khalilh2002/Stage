@@ -13,16 +13,17 @@ import { StagiairesService } from 'src/app/services/stagiaires.service';
   templateUrl: './stagiaire.component.html',
 })
 export class StagiaireComponent implements OnInit{
-  stgiaires:any = null
-  
+  stagiaires:any = null
+  displayedColumns: string[] = ['nom','prenom','email'];
+
   constructor(private stagiairesService:StagiairesService) {}
 
   ngOnInit(): void {
     this.stagiairesService.getStagiaire().subscribe({
       next:(res)=>{
         
-        this.stgiaires  = res;
-        console.log(this.stgiaires);
+        this.stagiaires  = res;
+        console.log(this.stagiaires);
 
       }
     })
