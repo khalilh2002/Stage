@@ -31,6 +31,8 @@ import { ViewStagiaireComponent } from './view-stagiaire/view-stagiaire.componen
 
 })
 export class StagiaireComponent implements OnInit{
+
+  data:any
   readonly dialog = inject(MatDialog);
 
   stagiaires:any = null
@@ -61,7 +63,8 @@ export class StagiaireComponent implements OnInit{
 
         this.stagiaires  = res;
         this.dataSource = this.stagiaires.slice(0,this.pageSize);
-        
+        this.data = res[0]
+
       }
     })
   }
@@ -87,6 +90,10 @@ export class StagiaireComponent implements OnInit{
   }
 
 
+  changeDate(date_:string) : string{
+    const date = new Date(date_)
+    return date.getDay() + "/" + date.getMonth() + '/'+ date.getFullYear()
+  }
 
 
 }

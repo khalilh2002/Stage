@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $role = Role::findByName('stagiaire');
-        $permission = Permission::findByName('show articles');
+        $role = Role::create(['name'=>'stagiaire']);
+        $permission = Permission::create(['name'=>'show article']);
         $role->givePermissionTo($permission);
 
-        $users = User::factory(50)->create();
+        $users = User::factory(100)->create();
         $role->users()->attach($users);
 
         // User::factory()->create([

@@ -1,7 +1,53 @@
-<h2 mat-dialog-title>Dialog Example</h2>
+
+<h2 mat-dialog-title>Stagiaire</h2>
 <mat-dialog-content>
-  <p>view-stagiaire works! {{data.nom}}</p>
+  <div class="container ">
+    <div class="row gap-5">
+      <div class="col-3 overflow-hidden">
+        <img
+          [src]="'http://127.0.0.1:8000/' + data.image"
+          class="rounded"
+          width="100%"
+        />
+      </div>
+      <div class="col-4">
+        <p>
+          Nom :
+          <span class="text-primary-emphasis fw-light">{{ data.nom }}</span>
+        </p>
+        <p>
+          Prenom :
+          <span class="text-primary-emphasis fw-light">{{ data.prenom }}</span>
+        </p>
+        <p>CIN :
+          <span class="text-primary-emphasis fw-light">{{ data.cin }}</span>
+        </p>
+        <p>
+          Email :
+          <a href="mailto:{{ data.email }}">
+            <span class="badge bg-primary">
+              {{ data.email }}
+            </span>
+          </a>
+        </p>
+
+        <p>
+          Phone :
+          <span class="badge bg-secondary">
+            {{ data.numTel }}
+          </span>
+        </p>
+        <p>
+          Rejointe en  :
+          <span class="fw-lighter">
+            {{ changeDate(data.created_at) }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions class="d-flex justify-content-center">
   <button mat-button mat-dialog-close>Close</button>
+
 </mat-dialog-actions>
