@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use response;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -18,4 +19,9 @@ class StagiaireController extends Controller
        $users = $stagiaireRole->users()->get();
        return response()->json($users,200);
     }
+
+    public function remove(User $user, Request $request) {
+        return "hello";
+    }
+
 }

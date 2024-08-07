@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable , HasRoles;
+    use HasFactory, Notifiable , HasRoles , HasApiTokens;
 
 
     /**
@@ -28,6 +29,8 @@ class User extends Authenticatable
         'password',
         'image'
     ];
+
+
 
     /**
      * The attributes that should be hidden for serialization.

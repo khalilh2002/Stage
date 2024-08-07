@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $permission = Permission::create(['name'=>'show article']);
         $role->givePermissionTo($permission);
 
-        $users = User::factory(100)->create();
+        $users = User::factory(210)->create();
         $role->users()->attach($users);
 
         // User::factory()->create([
