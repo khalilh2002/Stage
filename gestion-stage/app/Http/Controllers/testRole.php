@@ -16,19 +16,26 @@ class testRole extends Controller
          */
         $user = Role::findByName("super-admin","web")->users()->first();
         $token = $user->createToken("auth-token")->plainTextToken;
-
-        return response()->json([$user , $token],200);
+        return response()->json([$token],200);
     }
 
     public function encadrement() {
+        /**
+         * @var User $user
+         */
         $user = Role::findByName("encadrement","web")->users()->first();
-        return response()->json($user,200);
+        $token = $user->createToken("auth-token")->plainTextToken;
+
+        return response()->json([$token],200);
     }
 
     public function stagiaire() {
+        /**
+         * @var User $user
+         */
         $user = Role::findByName("stagiaire","web")->users()->first();
-        $cookie = cookie('auth', $user->createToken("auth-token")->plainTextToken, 60000);
-        return response(json_encode($user->createToken("auth-token")->plainTextToken),200)->cookie($cookie);
+        $token = $user->createToken("auth-token")->plainTextToken;
+        return response()->json([$token],200);
     }
 
 }

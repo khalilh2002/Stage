@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ViewStagiaireComponent } from './view-stagiaire/view-stagiaire.component';
+import { map } from 'rxjs';
 
 
 @Component({
@@ -58,7 +59,7 @@ export class StagiaireComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.stagiairesService.getStagiaire().subscribe({
+    this.stagiairesService.getStagiaires().subscribe({
       next:(res)=>{
 
         this.stagiaires  = res;
@@ -67,6 +68,23 @@ export class StagiaireComponent implements OnInit{
 
       }
     })
+  }
+/**
+ *TODO : add login to get the token from by using "$user->createToken()" and save it in cookie or localStorage
+ *TODO : this is based on "sactum" package in PHP for backend
+ */
+  deleteStagiaire(id:string):void{
+    console.info(id)
+    const token = "2|52m95n5ipOZlw27xs2jGfzP2LorgAJXHA8aFotQp004e2164" //token will comme from cookie or localstorage and put it here
+    this.stagiairesService.deleteStagiaire(id , token).subscribe(
+      {
+        next:(res:any)=>{
+          console.info(res);
+          alert(res?.message)
+
+        }
+      }
+    )
   }
 
   openDialog(stagiaire:any) {
@@ -90,10 +108,9 @@ export class StagiaireComponent implements OnInit{
   }
 
 
-  changeDate(date_:string) : string{
-    const date = new Date(date_)
-    return date.getDay() + "/" + date.getMonth() + '/'+ date.getFullYear()
-  }
+
+
+
 
 
 }

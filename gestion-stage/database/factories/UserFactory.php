@@ -46,7 +46,7 @@ class UserFactory extends Factory
     }
 
     private function generateCin(){
-        $prefix = 'STG';
+        $prefix = 'ENC';
         $randomNumber = mt_rand(1000000, 9999999);
          // Implement check digit calculation
 

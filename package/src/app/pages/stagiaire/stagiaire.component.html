@@ -1,57 +1,4 @@
-@if (false) {
-<h2 mat-dialog-title>Stagiaire </h2>
-<mat-dialog-content>
-  <div class="container">
-    <div class="row">
-      <div class="col-3 overflow-hidden">
-        <img
-          [src]="'http://127.0.0.1:8000/' + data.image"
-          class="rounded"
-          width="100%"
-        />
-      </div>
-      <div class="col-9">
-        <p>
-          Nom :
-          <span class="text-primary-emphasis fw-light">{{ data.nom }}</span>
-        </p>
-        <p>
-          Prenom :
-          <span class="text-primary-emphasis fw-light">{{ data.prenom }}</span>
-        </p>
-        <p>CIN :
-          <span class="text-primary-emphasis fw-light">{{ data.cin }}</span>
-        </p>
-        <p>
-          Email :
-          <a href="mailto:{{ data.email }}">
-            <span class="badge bg-primary">
-              {{ data.email }}
-            </span>
-          </a>
-        </p>
 
-        <p>
-          Phone :
-          <span class="badge bg-secondary">
-            {{ data.numTel }}
-          </span>
-        </p>
-        <p>
-          Rejointe en  :
-          <span class="fw-lighter">
-            {{ changeDate(data.created_at) }}
-          </span>
-        </p>
-      </div>
-    </div>
-  </div>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
-</mat-dialog-actions>
-
-}@else {
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!-- Nom Column -->
   <ng-container matColumnDef="ID">
@@ -93,7 +40,7 @@
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button mat-mini-fab>
+        <button mat-mini-fab (click)="deleteStagiaire(person.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
@@ -113,4 +60,4 @@
 >
 </mat-paginator>
 
-}
+
